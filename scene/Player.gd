@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):
+func _physics_process(float):
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity.y += gravity * delta
@@ -33,3 +33,11 @@ func _physics_process(delta):
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+
+
+func _on_portal_body_entered(body):
+	get_tree().change_scene_to_file("res://scene/game 2.tscn")
+	print("joko")

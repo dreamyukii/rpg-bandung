@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0njum5towmon"]
+[gd_scene load_steps=9 format=3 uid="uid://crjjcoaur0uhc"]
 
-[ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="1_ydqyn"]
-[ext_resource type="Script" path="res://scene/Player.gd" id="2_cknqd"]
-[ext_resource type="Texture2D" uid="uid://bad61ekfitfm8" path="res://Player/Player.png" id="3_mo2sg"]
-[ext_resource type="Texture2D" uid="uid://ge28gm7t8jae" path="res://World/Screenshot_66.png" id="4_5cevm"]
-[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="4_h2ukj"]
+[ext_resource type="Texture2D" uid="uid://v6f7yghgh3rc" path="res://World/Field.png" id="1_cfn1n"]
+[ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="2_k0og5"]
+[ext_resource type="Script" path="res://scene/Player.gd" id="3_ess7h"]
+[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="4_vh8f5"]
+[ext_resource type="Texture2D" uid="uid://bad61ekfitfm8" path="res://Player/Player.png" id="5_5sd0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1dqm"]
 size = Vector2(1171.5, 404)
@@ -16,25 +16,22 @@ height = 244.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjjqq"]
 size = Vector2(59.75, 43.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cpy3"]
-size = Vector2(28, 274)
-
 [node name="Game" type="Node"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+[node name="Field" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(603, 147)
+scale = Vector2(1.23145, 0.446289)
+texture = ExtResource("1_cfn1n")
+
 [node name="Road" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(612.167, 508)
 scale = Vector2(0.855324, 0.641204)
-texture = ExtResource("1_ydqyn")
-
-[node name="Background" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(593, 46)
-scale = Vector2(1.6253, 1.60542)
-texture = ExtResource("4_5cevm")
+texture = ExtResource("2_k0og5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(589, 170)
+position = Vector2(574.25, 168)
 shape = SubResource("RectangleShape2D_i1dqm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -44,12 +41,12 @@ shape = SubResource("CapsuleShape2D_vuxmt")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(85, 476)
-script = ExtResource("2_cknqd")
+script = ExtResource("3_ess7h")
 
 [node name="$spritesheet_(8)" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(-6, -8.00003)
 scale = Vector2(1.76461, 1.76461)
-texture = ExtResource("4_h2ukj")
+texture = ExtResource("4_vh8f5")
 hframes = 8
 vframes = 4
 frame = 16
@@ -58,21 +55,9 @@ frame = 16
 visible = false
 position = Vector2(2, 1)
 scale = Vector2(4.22656, 4.22656)
-texture = ExtResource("3_mo2sg")
+texture = ExtResource("5_5sd0c")
 hframes = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-2, 33.75)
 shape = SubResource("RectangleShape2D_kjjqq")
-
-[node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
-
-[node name="Portal" type="Area2D" parent="."]
-position = Vector2(1196, 548)
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
-position = Vector2(1, -37)
-shape = SubResource("RectangleShape2D_0cpy3")
-
-[connection signal="body_entered" from="Portal" to="CharacterBody2D" method="_on_portal_body_entered"]
