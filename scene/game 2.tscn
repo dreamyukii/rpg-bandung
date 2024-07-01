@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://v6f7yghgh3rc" path="res://World/Field.png" id="1_cfn1n"]
 [ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="2_k0og5"]
-[ext_resource type="Script" path="res://scene/Player.gd" id="3_ess7h"]
+[ext_resource type="Script" path="res://script/Player.gd" id="3_ess7h"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="4_vh8f5"]
 [ext_resource type="Texture2D" uid="uid://bad61ekfitfm8" path="res://Player/Player.png" id="5_5sd0c"]
 
