@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cpknapa1oyjdu"]
+
+[ext_resource type="Script" path="res://script/BaseEnemy.gd" id="1_8vn87"]
+
+[resource]
+script = ExtResource("1_8vn87")
+name = "Wee Wiranto"
+health = 65
+damage = 15
