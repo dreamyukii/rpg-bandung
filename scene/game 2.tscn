@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://crjjcoaur0uhc"]
+[gd_scene load_steps=8 format=3 uid="uid://crjjcoaur0uhc"]
 
 [ext_resource type="Texture2D" uid="uid://v6f7yghgh3rc" path="res://World/Field.png" id="1_cfn1n"]
 [ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="2_k0og5"]
 [ext_resource type="Script" path="res://script/Player.gd" id="3_ess7h"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="4_vh8f5"]
-[ext_resource type="Texture2D" uid="uid://bad61ekfitfm8" path="res://Player/Player.png" id="5_5sd0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1dqm"]
 size = Vector2(1171.5, 404)
@@ -50,13 +49,6 @@ texture = ExtResource("4_vh8f5")
 hframes = 8
 vframes = 4
 frame = 16
-
-[node name="Player" type="Sprite2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(2, 1)
-scale = Vector2(4.22656, 4.22656)
-texture = ExtResource("5_5sd0c")
-hframes = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-2, 33.75)
