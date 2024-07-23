@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://crjjcoaur0uhc"]
+[gd_scene load_steps=10 format=3 uid="uid://crjjcoaur0uhc"]
 
 [ext_resource type="Texture2D" uid="uid://v6f7yghgh3rc" path="res://World/Field.png" id="1_cfn1n"]
 [ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="2_k0og5"]
 [ext_resource type="Script" path="res://script/Player.gd" id="3_ess7h"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="4_vh8f5"]
+[ext_resource type="Texture2D" uid="uid://1k4tu1wc6hsi" path="res://Player/E_Com.png" id="5_43ott"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1dqm"]
 size = Vector2(1171.5, 404)
@@ -14,6 +15,9 @@ height = 244.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjjqq"]
 size = Vector2(59.75, 43.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghe0e"]
+size = Vector2(20.8889, 26.3056)
 
 [node name="Game" type="Node"]
 
@@ -53,3 +57,27 @@ frame = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-2, 33.75)
 shape = SubResource("RectangleShape2D_kjjqq")
+
+[node name="Enemy2" type="CharacterBody2D" parent="."]
+position = Vector2(958, 134)
+scale = Vector2(1.5, 1.5)
+
+[node name="Area2D" type="Area2D" parent="Enemy2"]
+position = Vector2(-406, 222.667)
+scale = Vector2(1.08225, 1.08225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/Area2D"]
+position = Vector2(0.308029, 20.328)
+scale = Vector2(1.386, 1.386)
+shape = SubResource("RectangleShape2D_ghe0e")
+
+[node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy2"]
+position = Vector2(-406, 222.667)
+scale = Vector2(1.08225, 1.08225)
+texture = ExtResource("5_43ott")
+flip_h = true
+hframes = 8
+vframes = 4
+frame = 16
+
+[connection signal="body_shape_entered" from="Enemy2/Area2D" to="CharacterBody2D" method="_on_area_2d_body_shape_entered"]

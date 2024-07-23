@@ -38,6 +38,17 @@ func _physics_process(delta):
 
 
 
-func _on_portal_body_entered(body):
-	get_tree().change_scene_to_file("res://scene/game 2.tscn")
+#func _on_portal_body_entered(body):
+	#get_tree().change_scene_to_file("res://scene/game 2.tscn")
+	#print("joko")
+
+
+func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	get_tree().change_scene_to_file("res://scene/combat.tscn")
 	print("joko")
+
+
+func _on_portal_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	#SceneTransition.Transit("res://scene(draft)/game 2.tscn")
+	#pass # Replace with function body.
+	pass

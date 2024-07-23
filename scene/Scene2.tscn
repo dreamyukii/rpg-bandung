@@ -1,0 +1,156 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2hgpuu4d4us0"]
+
+[ext_resource type="Script" path="res://scene/Scene2.gd" id="1_a7ptj"]
+[ext_resource type="Script" path="res://script/Player.gd" id="1_vm73v"]
+[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_6hal0"]
+[ext_resource type="Script" path="res://script/Portal.gd" id="3_dvvxq"]
+[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="4_bnw7f"]
+[ext_resource type="Texture2D" uid="uid://ctlvesd6glur" path="res://World/shutterstock_2406334587.png" id="5_88oco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yddgu"]
+size = Vector2(205, 149.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5of1"]
+size = Vector2(28, 274)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq7vy"]
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrm3m"]
+draw_center = false
+
+[sub_resource type="Animation" id="Animation_mfx1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_h0mdr"]
+resource_name = "show"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ualyt"]
+_data = {
+"RESET": SubResource("Animation_mfx1o"),
+"show": SubResource("Animation_h0mdr")
+}
+
+[node name="Scene2" type="Node"]
+script = ExtResource("1_a7ptj")
+
+[node name="World" type="StaticBody2D" parent="."]
+visibility_layer = 2
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+visibility_layer = 2
+position = Vector2(300, 1012)
+script = ExtResource("1_vm73v")
+
+[node name="$spritesheet_(8)" type="Sprite2D" parent="Player2"]
+position = Vector2(-106, -721)
+scale = Vector2(4.85714, 4.85714)
+texture = ExtResource("2_6hal0")
+hframes = 8
+vframes = 4
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+position = Vector2(-105, -627)
+shape = SubResource("RectangleShape2D_yddgu")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+visibility_layer = 2
+position = Vector2(150, 506)
+script = ExtResource("1_vm73v")
+
+[node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
+position = Vector2(787, -219)
+scale = Vector2(4.83117, 4.83117)
+texture = ExtResource("2_6hal0")
+hframes = 8
+vframes = 4
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(795, -100)
+shape = SubResource("RectangleShape2D_yddgu")
+
+[node name="Portal" type="Area2D" parent="."]
+visibility_layer = 2
+position = Vector2(1196, 548)
+monitorable = false
+script = ExtResource("3_dvvxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+position = Vector2(1, -37)
+shape = SubResource("RectangleShape2D_x5of1")
+
+[node name="Container" type="Container" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shutterstock2406334587" type="Sprite2D" parent="Container"]
+z_index = -1
+position = Vector2(589, 290)
+texture = ExtResource("5_88oco")
+
+[node name="TextBoxPanel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -224.0
+offset_right = -28.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pq7vy")
+metadata/_edit_group_ = true
+
+[node name="Text" type="Label" parent="TextBoxPanel"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 782.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("4_bnw7f")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lrm3m")
+text = "AWiawjiawjijwaiwakidiwaiawkdiwkaidwaidjwaijdksajdiwajdkas"
+autowrap_mode = 3
+text_direction = 1
+
+[node name="TextAni" type="AnimationPlayer" parent="TextBoxPanel"]
+root_node = NodePath("../Text")
+libraries = {
+"": SubResource("AnimationLibrary_ualyt")
+}

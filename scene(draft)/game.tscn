@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0njum5towmon"]
+[gd_scene load_steps=10 format=3 uid="uid://d0njum5towmon"]
 
 [ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="1_ydqyn"]
 [ext_resource type="Script" path="res://script/Player.gd" id="2_cknqd"]
 [ext_resource type="Texture2D" uid="uid://ge28gm7t8jae" path="res://World/Screenshot_66.png" id="4_5cevm"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="4_h2ukj"]
+[ext_resource type="Script" path="res://script/Portal.gd" id="5_2ivme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1dqm"]
 size = Vector2(1171.5, 404)
@@ -62,9 +63,12 @@ shape = SubResource("RectangleShape2D_kjjqq")
 [node name="Portal" type="Area2D" parent="."]
 position = Vector2(1196, 548)
 monitorable = false
+script = ExtResource("5_2ivme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
 position = Vector2(1, -37)
 shape = SubResource("RectangleShape2D_0cpy3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
 
 [connection signal="body_entered" from="Portal" to="CharacterBody2D" method="_on_portal_body_entered"]
