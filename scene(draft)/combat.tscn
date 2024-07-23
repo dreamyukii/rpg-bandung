@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn0t8d7c17yla"]
+[gd_scene load_steps=15 format=3 uid="uid://cn0t8d7c17yla"]
 
-[ext_resource type="Script" path="res://script/Player.gd" id="1_3dl40"]
 [ext_resource type="Script" path="res://script/combat.gd" id="1_8swqi"]
 [ext_resource type="Resource" uid="uid://p5pkvw56g0wj" path="res://script/EnemyNormal.tres" id="2_23r4k"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_dndgh"]
@@ -65,7 +64,6 @@ enemyCommander = ExtResource("3_81vw3")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(209, 298)
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_3dl40")
 
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
 position = Vector2(-3.58333, -42.9167)
@@ -88,7 +86,6 @@ show_percentage = false
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(960, 304)
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_3dl40")
 
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy"]
 position = Vector2(-6, -8.00003)
@@ -116,7 +113,6 @@ value = 50.0
 [node name="Enemy2" type="CharacterBody2D" parent="."]
 position = Vector2(958, 134)
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_3dl40")
 
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy2"]
 position = Vector2(-6, -8.00003)
