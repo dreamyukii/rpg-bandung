@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cov01x8gmv584"]
 
-[ext_resource type="Script" path="res://scene/main_menu.gd" id="1_5h0ca"]
+[ext_resource type="Script" path="res://scene/scripts/main_menu.gd" id="1_5h0ca"]
 
 [sub_resource type="Theme" id="Theme_2v5xh"]
 

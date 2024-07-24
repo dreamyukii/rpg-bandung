@@ -1,0 +1,274 @@
+[gd_scene load_steps=18 format=3 uid="uid://6x8yddhcmvla"]
+
+[ext_resource type="Script" path="res://scene/scripts/CombatScene3.gd" id="1_jwon1"]
+[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_hq5mp"]
+[ext_resource type="Resource" uid="uid://p5pkvw56g0wj" path="res://script/EnemyNormal.tres" id="2_nu1qb"]
+[ext_resource type="Resource" uid="uid://cpknapa1oyjdu" path="res://script/EnemyCommander.tres" id="3_0gbib"]
+[ext_resource type="Texture2D" uid="uid://cq3wnjcbytobe" path="res://Player/Enemy.png" id="3_a1pp8"]
+[ext_resource type="Texture2D" uid="uid://1k4tu1wc6hsi" path="res://Player/E_Com.png" id="4_rudj5"]
+[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="5_evpoa"]
+[ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="6_0bun5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba5ah"]
+bg_color = Color(0.791346, 0, 0.120508, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51q04"]
+bg_color = Color(0.133485, 0.686829, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmvqe"]
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 4
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvgt0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm5un"]
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t67g"]
+draw_center = false
+
+[sub_resource type="Animation" id="Animation_khyba"]
+resource_name = "glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/$spritesheet_(8):modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.52549), Color(1, 1, 1, 1), Color(1, 1, 1, 0.513726)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy2/$spritesheet_(8):modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.458824), Color(1, 1, 1, 1), Color(1, 1, 1, 0.529412)]
+}
+
+[sub_resource type="Animation" id="Animation_a63rh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy2/$spritesheet_(8):modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/$spritesheet_(8):modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vx5f"]
+_data = {
+"RESET": SubResource("Animation_a63rh"),
+"glow": SubResource("Animation_khyba")
+}
+
+[node name="CombatScene3" type="Node"]
+script = ExtResource("1_jwon1")
+enemy = ExtResource("2_nu1qb")
+enemyCommander = ExtResource("3_0gbib")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(209, 298)
+scale = Vector2(1.5, 1.5)
+
+[node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
+position = Vector2(-3.58333, -42.9167)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_hq5mp")
+hframes = 8
+vframes = 4
+frame = 16
+
+[node name="ProgressBar" type="ProgressBar" parent="Player"]
+offset_left = -52.0
+offset_top = 17.3333
+offset_right = 48.0
+offset_bottom = 27.3333
+theme_override_styles/background = SubResource("StyleBoxFlat_ba5ah")
+theme_override_styles/fill = SubResource("StyleBoxFlat_51q04")
+value = 50.0
+show_percentage = false
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(960, 304)
+scale = Vector2(1.5, 1.5)
+
+[node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy"]
+position = Vector2(-6, -8.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_a1pp8")
+flip_h = true
+hframes = 8
+vframes = 4
+frame = 16
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemy"]
+offset_left = -53.3333
+offset_top = 57.3333
+offset_right = 46.6667
+offset_bottom = 67.3333
+theme_override_styles/background = SubResource("StyleBoxFlat_ba5ah")
+theme_override_styles/fill = SubResource("StyleBoxFlat_51q04")
+value = 50.0
+
+[node name="Button" type="Button" parent="Enemy"]
+visible = false
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 17.0
+offset_bottom = 46.0
+
+[node name="Enemy2" type="CharacterBody2D" parent="."]
+position = Vector2(958, 134)
+scale = Vector2(1.5, 1.5)
+
+[node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy2"]
+position = Vector2(-6, -8.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_rudj5")
+flip_h = true
+hframes = 8
+vframes = 4
+frame = 16
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemy2"]
+offset_left = -58.0
+offset_top = 56.6667
+offset_right = 42.0
+offset_bottom = 66.6667
+theme_override_styles/background = SubResource("StyleBoxFlat_ba5ah")
+theme_override_styles/fill = SubResource("StyleBoxFlat_51q04")
+value = 50.0
+
+[node name="Button" type="Button" parent="Enemy2"]
+visible = false
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 17.0
+offset_bottom = 46.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = -788.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Attack" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmvqe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jvgt0")
+text = "Attack
+"
+
+[node name="Defend" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmvqe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jvgt0")
+text = "Defend"
+
+[node name="Run" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmvqe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jvgt0")
+text = "Run"
+
+[node name="TextBoxPanel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = -146.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pm5un")
+
+[node name="Text" type="Label" parent="TextBoxPanel"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 782.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_6t67g")
+text = "AWiawjiawjijwaiwakidiwaiawkdiwkaidwaidjwaijdksajdiwajdkas"
+autowrap_mode = 3
+text_direction = 1
+
+[node name="Road" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(794, 212)
+scale = Vector2(1.28125, 1.28125)
+texture = ExtResource("6_0bun5")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vx5f")
+}
+
+[connection signal="pressed" from="Enemy/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Enemy2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Attack" to="." method="_on_attack_pressed"]

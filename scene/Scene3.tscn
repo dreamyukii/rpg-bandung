@@ -1,21 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2hgpuu4d4us0"]
+[gd_scene load_steps=11 format=3 uid="uid://dgkdphcfcsu5h"]
 
-[ext_resource type="Script" path="res://scene/scripts/Scene2.gd" id="1_a7ptj"]
-[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_6hal0"]
-[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="4_bnw7f"]
-[ext_resource type="Texture2D" uid="uid://ctlvesd6glur" path="res://World/shutterstock_2406334587.png" id="5_88oco"]
+[ext_resource type="Script" path="res://scene/scripts/Scene3.gd" id="1_88p06"]
+[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_0jo13"]
+[ext_resource type="Texture2D" uid="uid://c487qfgh62hqk" path="res://World/172182523442787269.jpeg" id="3_7l1uq"]
+[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="4_iolu2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yddgu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kef03"]
 size = Vector2(205, 149.75)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq7vy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3of4k"]
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrm3m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcpxk"]
 draw_center = false
 
 [sub_resource type="Animation" id="Animation_mfx1o"]
@@ -55,8 +55,8 @@ _data = {
 "show": SubResource("Animation_h0mdr")
 }
 
-[node name="Scene2" type="Node"]
-script = ExtResource("1_a7ptj")
+[node name="Scene3" type="Node"]
+script = ExtResource("1_88p06")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
 visibility_layer = 2
@@ -65,14 +65,14 @@ position = Vector2(300, 1012)
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Player2"]
 position = Vector2(-106, -721)
 scale = Vector2(4.85714, 4.85714)
-texture = ExtResource("2_6hal0")
+texture = ExtResource("2_0jo13")
 hframes = 8
 vframes = 4
 frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
 position = Vector2(-105, -627)
-shape = SubResource("RectangleShape2D_yddgu")
+shape = SubResource("RectangleShape2D_kef03")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 visibility_layer = 2
@@ -81,14 +81,14 @@ position = Vector2(150, 506)
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
 position = Vector2(787, -219)
 scale = Vector2(4.83117, 4.83117)
-texture = ExtResource("2_6hal0")
+texture = ExtResource("2_0jo13")
 hframes = 8
 vframes = 4
 frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(795, -100)
-shape = SubResource("RectangleShape2D_yddgu")
+shape = SubResource("RectangleShape2D_kef03")
 
 [node name="Container" type="Container" parent="."]
 anchors_preset = 15
@@ -97,10 +97,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Shutterstock2406334587" type="Sprite2D" parent="Container"]
+[node name="172182523442787269" type="Sprite2D" parent="Container"]
 z_index = -1
-position = Vector2(589, 290)
-texture = ExtResource("5_88oco")
+position = Vector2(582, 252)
+scale = Vector2(1.68925, 1.68925)
+texture = ExtResource("3_7l1uq")
 
 [node name="TextBoxPanel" type="Panel" parent="."]
 anchors_preset = 12
@@ -113,7 +114,7 @@ offset_right = -28.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pq7vy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3of4k")
 metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="TextBoxPanel"]
@@ -122,9 +123,9 @@ offset_left = 20.0
 offset_top = 19.0
 offset_right = 782.0
 offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("4_bnw7f")
+theme_override_fonts/font = ExtResource("4_iolu2")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_lrm3m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xcpxk")
 text = "AWiawjiawjijwaiwakidiwaiawkdiwkaidwaidjwaijdksajdiwajdkas"
 autowrap_mode = 3
 text_direction = 1

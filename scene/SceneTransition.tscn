@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://csk6anl11t5gx"]
 
-[ext_resource type="Script" path="res://scene/SceneTransition.gd" id="1_3a7sx"]
+[ext_resource type="Script" path="res://scene/scripts/SceneTransition.gd" id="1_3a7sx"]
 
 [sub_resource type="Animation" id="Animation_nqy71"]
 resource_name = "Disolve"

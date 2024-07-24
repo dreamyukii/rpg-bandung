@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://vptpkb2m4fd1"]
+[gd_scene load_steps=14 format=3 uid="uid://vptpkb2m4fd1"]
 
-[ext_resource type="Script" path="res://scene/Scene1.gd" id="1_tr3el"]
+[ext_resource type="Script" path="res://scene/scripts/Scene1.gd" id="1_tr3el"]
 [ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="2_c6x7v"]
-[ext_resource type="Script" path="res://script/Player.gd" id="5_ag52m"]
 [ext_resource type="Texture2D" uid="uid://bjo5l15oq340m" path="res://World/DPsuoTiVoAAFVHN.jpg" id="6_6q4co"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="6_cr7nq"]
-[ext_resource type="Script" path="res://script/Portal.gd" id="7_i6661"]
 
 [sub_resource type="Animation" id="Animation_1405x"]
 length = 0.001
@@ -46,9 +44,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hy1r"]
 size = Vector2(205, 149.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5w668"]
-size = Vector2(28, 274)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stjac"]
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
@@ -134,13 +129,9 @@ offset_right = 856.0
 offset_bottom = 552.0
 placeholder_text = "Koawdoawodkowakdoawkdoawkod"
 
-[node name="World" type="StaticBody2D" parent="."]
-visibility_layer = 2
-
 [node name="Player2" type="CharacterBody2D" parent="."]
 visibility_layer = 2
 position = Vector2(300, 1012)
-script = ExtResource("5_ag52m")
 
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Player2"]
 position = Vector2(-106, -721)
@@ -157,7 +148,6 @@ shape = SubResource("RectangleShape2D_1hy1r")
 [node name="Player" type="CharacterBody2D" parent="."]
 visibility_layer = 2
 position = Vector2(150, 506)
-script = ExtResource("5_ag52m")
 
 [node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
 position = Vector2(787, -219)
@@ -170,16 +160,6 @@ frame = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(795, -100)
 shape = SubResource("RectangleShape2D_1hy1r")
-
-[node name="Portal" type="Area2D" parent="."]
-visibility_layer = 2
-position = Vector2(1196, 548)
-monitorable = false
-script = ExtResource("7_i6661")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
-position = Vector2(1, -37)
-shape = SubResource("RectangleShape2D_5w668")
 
 [node name="DPsuoTiVoAafvhn" type="Sprite2D" parent="."]
 z_index = -1
@@ -220,5 +200,3 @@ text_direction = 1
 libraries = {
 "": SubResource("AnimationLibrary_ualyt")
 }
-
-[connection signal="body_shape_entered" from="Portal" to="Player" method="_on_portal_body_shape_entered"]
