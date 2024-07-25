@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://6x8yddhcmvla"]
+[gd_scene load_steps=45 format=3 uid="uid://qt3s68hj2mka"]
 
 [ext_resource type="Script" path="res://scene/scripts/CombatScene3.gd" id="1_jwon1"]
-[ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_hq5mp"]
 [ext_resource type="Resource" uid="uid://p5pkvw56g0wj" path="res://script/EnemyNormal.tres" id="2_nu1qb"]
 [ext_resource type="Resource" uid="uid://cpknapa1oyjdu" path="res://script/EnemyCommander.tres" id="3_0gbib"]
 [ext_resource type="Texture2D" uid="uid://cq3wnjcbytobe" path="res://Player/Enemy.png" id="3_a1pp8"]
+[ext_resource type="Texture2D" uid="uid://br28oq7odyull" path="res://Player/Pejuang.png" id="4_bk6ur"]
 [ext_resource type="Texture2D" uid="uid://1k4tu1wc6hsi" path="res://Player/E_Com.png" id="4_rudj5"]
 [ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="5_evpoa"]
 [ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="6_0bun5"]
@@ -27,6 +27,198 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftikn"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(0, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byt26"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(77, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3llfa"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(154, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70cxn"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(231, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ctkp"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(308, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1b18"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(385, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0u4v"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(462, 154, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2txv"]
+atlas = ExtResource("4_bk6ur")
+region = Rect2(539, 154, 77, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6p2ms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftikn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byt26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3llfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70cxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ctkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1b18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0u4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2txv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dewg"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(539, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gfha"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(462, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dosik"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(385, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ur71"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(308, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ce8w"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(231, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgf38"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(154, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k2wm"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(77, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0032"]
+atlas = ExtResource("3_a1pp8")
+region = Rect2(0, 77, 77, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lu7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dewg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gfha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dosik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ur71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ce8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgf38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k2wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0032")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ykh5"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(539, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tvln"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(462, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa2fs"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(385, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy6xq"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(308, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8gim"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(231, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_schvm"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(154, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ha7q"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(77, 77, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28y0q"]
+atlas = ExtResource("4_rudj5")
+region = Rect2(0, 77, 77, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pgy5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ykh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tvln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa2fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy6xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8gim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_schvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ha7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28y0q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmvqe"]
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 border_width_left = 3
@@ -46,60 +238,12 @@ border_width_bottom = 3
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t67g"]
 draw_center = false
 
+[sub_resource type="Animation" id="Animation_a63rh"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_khyba"]
 resource_name = "glow"
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy/$spritesheet_(8):modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.52549), Color(1, 1, 1, 1), Color(1, 1, 1, 0.513726)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy2/$spritesheet_(8):modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.458824), Color(1, 1, 1, 1), Color(1, 1, 1, 0.529412)]
-}
-
-[sub_resource type="Animation" id="Animation_a63rh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy2/$spritesheet_(8):modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy/$spritesheet_(8):modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1vx5f"]
 _data = {
@@ -116,14 +260,6 @@ enemyCommander = ExtResource("3_0gbib")
 position = Vector2(209, 298)
 scale = Vector2(1.5, 1.5)
 
-[node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
-position = Vector2(-3.58333, -42.9167)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_hq5mp")
-hframes = 8
-vframes = 4
-frame = 16
-
 [node name="ProgressBar" type="ProgressBar" parent="Player"]
 offset_left = -52.0
 offset_top = 17.3333
@@ -134,18 +270,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_51q04")
 value = 50.0
 show_percentage = false
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_6p2ms")
+frame_progress = 0.567397
+
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(960, 304)
 scale = Vector2(1.5, 1.5)
-
-[node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy"]
-position = Vector2(-6, -8.00003)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_a1pp8")
-flip_h = true
-hframes = 8
-vframes = 4
-frame = 16
 
 [node name="ProgressBar" type="ProgressBar" parent="Enemy"]
 offset_left = -53.3333
@@ -163,18 +294,16 @@ offset_top = -37.0
 offset_right = 17.0
 offset_bottom = 46.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(-7.41666, 8.75001)
+scale = Vector2(1.19264, 1.22727)
+sprite_frames = SubResource("SpriteFrames_8lu7o")
+animation = &"idle"
+frame_progress = 0.364778
+
 [node name="Enemy2" type="CharacterBody2D" parent="."]
 position = Vector2(958, 134)
 scale = Vector2(1.5, 1.5)
-
-[node name="$spritesheet_(8)" type="Sprite2D" parent="Enemy2"]
-position = Vector2(-6, -8.00003)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_rudj5")
-flip_h = true
-hframes = 8
-vframes = 4
-frame = 16
 
 [node name="ProgressBar" type="ProgressBar" parent="Enemy2"]
 offset_left = -58.0
@@ -191,6 +320,11 @@ offset_left = -28.0
 offset_top = -37.0
 offset_right = 17.0
 offset_bottom = 46.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy2"]
+sprite_frames = SubResource("SpriteFrames_pgy5r")
+animation = &"idle"
+frame_progress = 0.690689
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 12

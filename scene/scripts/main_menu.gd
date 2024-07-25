@@ -9,7 +9,7 @@ func _ready():
 
 func _on_play_pressed():
 	#SceneTransition._in("res://scene/scene1.tscn")
-	SceneTransition.Transit("res://scene/scene1.tscn")
+	SceneTransition.Transit("res://scene/Scene1.tscn")
 	
 	
 	
