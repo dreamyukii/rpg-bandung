@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://qt3s68hj2mka"]
+[gd_scene load_steps=49 format=3 uid="uid://qt3s68hj2mka"]
 
 [ext_resource type="Script" path="res://scene/scripts/CombatScene3.gd" id="1_jwon1"]
 [ext_resource type="Resource" uid="uid://p5pkvw56g0wj" path="res://script/EnemyNormal.tres" id="2_nu1qb"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cq3wnjcbytobe" path="res://Player/Enemy.png" id="3_a1pp8"]
 [ext_resource type="Texture2D" uid="uid://br28oq7odyull" path="res://Player/Pejuang.png" id="4_bk6ur"]
 [ext_resource type="Texture2D" uid="uid://1k4tu1wc6hsi" path="res://Player/E_Com.png" id="4_rudj5"]
-[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="5_evpoa"]
 [ext_resource type="Texture2D" uid="uid://cbj64r3nojk43" path="res://World/Road.png" id="6_0bun5"]
+[ext_resource type="FontFile" uid="uid://jc05yg18thbh" path="res://scene/scripts/Retro Gaming.ttf" id="7_5aaoa"]
+[ext_resource type="AudioStream" uid="uid://b0y77h2ywhu7u" path="res://World/music/Slash.mp3" id="9_oxc8g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba5ah"]
 bg_color = Color(0.791346, 0, 0.120508, 1)
@@ -240,15 +241,172 @@ draw_center = false
 
 [sub_resource type="Animation" id="Animation_a63rh"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy2/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Enemy/AnimatedSprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Enemy2/AnimatedSprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nu21f"]
+resource_name = "enemy2fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Enemy2/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy2/AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_hmjlb"]
+resource_name = "enemyfall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Enemy/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
 
 [sub_resource type="Animation" id="Animation_khyba"]
 resource_name = "glow"
+length = 0.5
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy2/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.301961), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.356863), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dw6au"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.287175),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1vx5f"]
 _data = {
 "RESET": SubResource("Animation_a63rh"),
-"glow": SubResource("Animation_khyba")
+"enemy2fall": SubResource("Animation_nu21f"),
+"enemyfall": SubResource("Animation_hmjlb"),
+"glow": SubResource("Animation_khyba"),
+"shake": SubResource("Animation_dw6au")
 }
 
 [node name="CombatScene3" type="Node"]
@@ -271,8 +429,11 @@ value = 50.0
 show_percentage = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-3.33333, -52)
+scale = Vector2(1.70346, 1.70346)
 sprite_frames = SubResource("SpriteFrames_6p2ms")
 frame_progress = 0.567397
+offset = Vector2(-10, 0)
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(960, 304)
@@ -280,9 +441,9 @@ scale = Vector2(1.5, 1.5)
 
 [node name="ProgressBar" type="ProgressBar" parent="Enemy"]
 offset_left = -53.3333
-offset_top = 57.3333
+offset_top = 58.0001
 offset_right = 46.6667
-offset_bottom = 67.3333
+offset_bottom = 87.0001
 theme_override_styles/background = SubResource("StyleBoxFlat_ba5ah")
 theme_override_styles/fill = SubResource("StyleBoxFlat_51q04")
 value = 50.0
@@ -295,8 +456,8 @@ offset_right = 17.0
 offset_bottom = 46.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(-7.41666, 8.75001)
-scale = Vector2(1.19264, 1.22727)
+position = Vector2(-6.66668, 0.666657)
+scale = Vector2(1.52164, 1.56583)
 sprite_frames = SubResource("SpriteFrames_8lu7o")
 animation = &"idle"
 frame_progress = 0.364778
@@ -307,9 +468,9 @@ scale = Vector2(1.5, 1.5)
 
 [node name="ProgressBar" type="ProgressBar" parent="Enemy2"]
 offset_left = -58.0
-offset_top = 56.6667
+offset_top = 46.3333
 offset_right = 42.0
-offset_bottom = 66.6667
+offset_bottom = 75.3333
 theme_override_styles/background = SubResource("StyleBoxFlat_ba5ah")
 theme_override_styles/fill = SubResource("StyleBoxFlat_51q04")
 value = 50.0
@@ -322,9 +483,12 @@ offset_right = 17.0
 offset_bottom = 46.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy2"]
+position = Vector2(-9.33334, -17.3333)
+scale = Vector2(1.67749, 1.67749)
 sprite_frames = SubResource("SpriteFrames_pgy5r")
 animation = &"idle"
-frame_progress = 0.690689
+frame = 1
+frame_progress = 0.88846
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 12
@@ -340,7 +504,7 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_fonts/font = ExtResource("7_5aaoa")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_cmvqe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jvgt0")
@@ -351,7 +515,7 @@ text = "Attack
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_fonts/font = ExtResource("7_5aaoa")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_cmvqe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jvgt0")
@@ -361,7 +525,7 @@ text = "Defend"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_fonts/font = ExtResource("7_5aaoa")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_cmvqe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jvgt0")
@@ -384,7 +548,7 @@ offset_left = 20.0
 offset_top = 19.0
 offset_right = 782.0
 offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("5_evpoa")
+theme_override_fonts/font = ExtResource("7_5aaoa")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_6t67g")
 text = "AWiawjiawjijwaiwakidiwaiawkdiwkaidwaidjwaijdksajdiwajdkas"
@@ -393,10 +557,19 @@ text_direction = 1
 
 [node name="Road" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(794, 212)
+position = Vector2(789, 226)
 scale = Vector2(1.28125, 1.28125)
 texture = ExtResource("6_0bun5")
 metadata/_edit_lock_ = true
+
+[node name="Slash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_oxc8g")
+volume_db = -19.447
+
+[node name="Slash2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_oxc8g")
+volume_db = -19.447
+pitch_scale = 0.42
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -406,3 +579,4 @@ libraries = {
 [connection signal="pressed" from="Enemy/Enemy1" to="." method="_on_enemy_1_pressed"]
 [connection signal="pressed" from="Enemy2/Enemy2" to="." method="_on_enemy_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="VBoxContainer/Defend" to="." method="_on_defend_pressed"]

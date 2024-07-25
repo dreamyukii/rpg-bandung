@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var animation = $AnimationPlayer
 
+
+
 func Transit(scenePath):
 	animation.play("Disolve")
 	await animation.animation_finished
@@ -10,3 +12,15 @@ func Transit(scenePath):
 	
 func _out():
 	animation.play_backwards("Disolve")
+
+
+
+#func _show(text):
+	#
+	#text.show()
+	#textani.play("show")
+	#await textani.animation_finished
+	#textani.play_backwards("show")
+	#
+	#await textani.animation_finished
+	#text.hide()
