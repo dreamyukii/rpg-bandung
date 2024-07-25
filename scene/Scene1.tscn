@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://vptpkb2m4fd1"]
+[gd_scene load_steps=18 format=3 uid="uid://vptpkb2m4fd1"]
 
 [ext_resource type="Script" path="res://scene/scripts/Scene1.gd" id="1_tr3el"]
-[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="2_c6x7v"]
+[ext_resource type="FontFile" uid="uid://jc05yg18thbh" path="res://scene/scripts/Retro Gaming.ttf" id="2_335no"]
+[ext_resource type="Texture2D" uid="uid://c1gb7x7lb86wm" path="res://Player/Abdul.png" id="4_svhia"]
 [ext_resource type="Texture2D" uid="uid://bjo5l15oq340m" path="res://World/DPsuoTiVoAAFVHN.jpg" id="6_6q4co"]
+[ext_resource type="AudioStream" uid="uid://b3bvrbaipmblb" path="res://World/music/Typewrite.mp3" id="6_54ngq"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="6_cr7nq"]
 
 [sub_resource type="Animation" id="Animation_1405x"]
@@ -22,7 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ea7s1"]
 resource_name = "out"
-length = 5.5
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +32,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5, 5.5),
+"times": PackedFloat32Array(2, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -60,26 +62,106 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/path = NodePath("../ColorRect/Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect/RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
 "values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text2:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_giqh3"]
+resource_name = "fill1"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_n850h"]
+resource_name = "fill2"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_h0mdr"]
 resource_name = "show"
-length = 4.0
+length = 5.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/path = NodePath("Text:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.5, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -89,6 +171,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ualyt"]
 _data = {
 "RESET": SubResource("Animation_mfx1o"),
+"fill1": SubResource("Animation_giqh3"),
+"fill2": SubResource("Animation_n850h"),
 "show": SubResource("Animation_h0mdr")
 }
 
@@ -113,21 +197,26 @@ metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 176.0
-offset_right = 760.0
-offset_bottom = 312.0
-theme_override_fonts/normal_font = ExtResource("2_c6x7v")
+offset_left = 200.0
+offset_top = 216.0
+offset_right = 984.0
+offset_bottom = 444.0
+theme_override_fonts/normal_font = ExtResource("2_335no")
 theme_override_font_sizes/normal_font_size = 64
 text = "Kota Bandung, 1946"
 
-[node name="TextEdit" type="TextEdit" parent="ColorRect"]
+[node name="Label" type="Label" parent="ColorRect"]
+z_index = 2
 layout_mode = 0
-offset_left = 304.0
-offset_top = 368.0
-offset_right = 856.0
-offset_bottom = 552.0
-placeholder_text = "Koawdoawodkowakdoawkdoawkod"
+offset_left = 319.0
+offset_top = 365.0
+offset_right = 872.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("2_335no")
+text = "Bandung, kota yang damai, berubah menjadi medan perang. Setelah proklamasi kemerdekaan, perjuangan untuk mempertahankan tanah air terus berlanjut."
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Player2" type="CharacterBody2D" parent="."]
 visibility_layer = 2
@@ -149,17 +238,17 @@ shape = SubResource("RectangleShape2D_1hy1r")
 visibility_layer = 2
 position = Vector2(150, 506)
 
-[node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
-position = Vector2(787, -219)
-scale = Vector2(4.83117, 4.83117)
-texture = ExtResource("6_cr7nq")
-hframes = 8
-vframes = 4
-frame = 16
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(795, -100)
 shape = SubResource("RectangleShape2D_1hy1r")
+
+[node name="Abdul" type="Sprite2D" parent="Player"]
+position = Vector2(781, -191)
+scale = Vector2(3.89935, 3.89935)
+texture = ExtResource("4_svhia")
+hframes = 8
+vframes = 4
+frame = 14
 
 [node name="DPsuoTiVoAafvhn" type="Sprite2D" parent="."]
 z_index = -1
@@ -185,12 +274,29 @@ metadata/_edit_group_ = true
 layout_mode = 2
 offset_left = 20.0
 offset_top = 19.0
-offset_right = 782.0
-offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("2_c6x7v")
+offset_right = 1072.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("2_335no")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_b6ik1")
-text = "AWiawjiawjijwaiwakidiwaiawkdiwkaidwaidjwaijdksajdiwajdkas"
+text = "Pejuang:
+\"Kita tidak bisa membiarkan mereka mengambil kota ini! Kita harus melawan!\""
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+text_direction = 1
+
+[node name="Text2" type="Label" parent="TextBoxPanel"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 1072.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("2_335no")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_b6ik1")
+text = "Penduduk: 
+\"Kami akan berdiri bersama kalian, untuk kemerdekaan!\""
 autowrap_mode = 3
 visible_characters = 0
 visible_ratio = 0.0
@@ -200,3 +306,11 @@ text_direction = 1
 libraries = {
 "": SubResource("AnimationLibrary_ualyt")
 }
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="Typewriter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_54ngq")
+volume_db = 1.691

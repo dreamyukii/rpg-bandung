@@ -6,4 +6,4 @@
 script = ExtResource("1_tqm7c")
 name = "Joko Wiranto"
 health = 50
-damage = 15
+damage = 10

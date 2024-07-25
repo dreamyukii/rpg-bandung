@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2hgpuu4d4us0"]
+[gd_scene load_steps=15 format=3 uid="uid://c2hgpuu4d4us0"]
 
 [ext_resource type="Script" path="res://scene/scripts/Scene2.gd" id="1_a7ptj"]
 [ext_resource type="Texture2D" uid="uid://c0c7n2wexicv5" path="res://Player/$Spritesheet%(8).png" id="2_6hal0"]
-[ext_resource type="FontFile" uid="uid://bujp5kop5trrh" path="res://Player/ADRIP1.TTF" id="4_bnw7f"]
+[ext_resource type="FontFile" uid="uid://jc05yg18thbh" path="res://scene/scripts/Retro Gaming.ttf" id="2_ieq2q"]
+[ext_resource type="Texture2D" uid="uid://4lhu1tjljdy2" path="res://Player/toha.png" id="4_8od87"]
 [ext_resource type="Texture2D" uid="uid://ctlvesd6glur" path="res://World/shutterstock_2406334587.png" id="5_88oco"]
+[ext_resource type="AudioStream" uid="uid://b3bvrbaipmblb" path="res://World/music/Typewrite.mp3" id="6_1mhm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yddgu"]
 size = Vector2(205, 149.75)
@@ -15,48 +17,101 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrm3m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxvwo"]
 draw_center = false
-
-[sub_resource type="Animation" id="Animation_mfx1o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_h0mdr"]
 resource_name = "show"
-length = 4.0
+length = 5.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/path = NodePath("TextBoxPanel/Text:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.5, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [3.72529e-09, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBoxPanel/Text2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.72529e-09, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ualyt"]
 _data = {
-"RESET": SubResource("Animation_mfx1o"),
 "show": SubResource("Animation_h0mdr")
+}
+
+[sub_resource type="Animation" id="Animation_1405x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ea7s1"]
+resource_name = "out"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3p8k"]
+_data = {
+"RESET": SubResource("Animation_1405x"),
+"out": SubResource("Animation_ea7s1")
 }
 
 [node name="Scene2" type="Node"]
 script = ExtResource("1_a7ptj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 262.0
+offset_right = 1024.0
+offset_bottom = 490.0
+theme_override_fonts/normal_font = ExtResource("2_ieq2q")
+theme_override_font_sizes/normal_font_size = 64
+text = "Markas Bawah Tanah"
 
 [node name="Player2" type="CharacterBody2D" parent="."]
 visibility_layer = 2
@@ -78,13 +133,13 @@ shape = SubResource("RectangleShape2D_yddgu")
 visibility_layer = 2
 position = Vector2(150, 506)
 
-[node name="$spritesheet_(8)" type="Sprite2D" parent="Player"]
-position = Vector2(787, -219)
-scale = Vector2(4.83117, 4.83117)
-texture = ExtResource("2_6hal0")
+[node name="Toha" type="Sprite2D" parent="Player"]
+position = Vector2(789, -190)
+scale = Vector2(4.82792, 4.82792)
+texture = ExtResource("4_8od87")
 hframes = 8
 vframes = 4
-frame = 16
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(795, -100)
@@ -96,11 +151,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Shutterstock2406334587" type="Sprite2D" parent="Container"]
 z_index = -1
 position = Vector2(589, 290)
 texture = ExtResource("5_88oco")
+metadata/_edit_lock_ = true
 
 [node name="TextBoxPanel" type="Panel" parent="."]
 anchors_preset = 12
@@ -117,20 +174,53 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_pq7vy")
 metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="TextBoxPanel"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 20.0
 offset_top = 19.0
-offset_right = 782.0
-offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("4_bnw7f")
+offset_right = 1072.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("2_ieq2q")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_lrm3m")
-text = "AWiawjiawjijwaiwakidiwaiawkdiwkaidwaidjwaijdksajdiwajdkas"
+theme_override_styles/normal = SubResource("StyleBoxFlat_uxvwo")
+text = "Pejuang:
+\"Pasukan Belanda semakin mendekat. Kita harus mempersiapkan diri.\""
 autowrap_mode = 3
+visible_characters = 11
+visible_ratio = 0.15
+text_direction = 1
+
+[node name="Text2" type="Label" parent="TextBoxPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 1072.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("2_ieq2q")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_uxvwo")
+text = "Pemimpin Perlawanan: 
+\"Kita akan menggunakan strategi bumi hangus. Bakar kota sebelum mereka mengambilnya!\""
+autowrap_mode = 3
+visible_characters = 16
+visible_ratio = 0.15
 text_direction = 1
 
 [node name="TextAni" type="AnimationPlayer" parent="TextBoxPanel"]
-root_node = NodePath("../Text")
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_ualyt")
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_l3p8k")
+}
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="Typewriter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1mhm3")
+volume_db = 1.691
