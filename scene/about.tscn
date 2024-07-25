@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqsq81phswlje"]
+
+[ext_resource type="Texture2D" uid="uid://bgeihm55q0jt0" path="res://World/azka-rayhansyah-IpRIt5NjlFo-unsplash.jpg" id="1_416kv"]
+[ext_resource type="Script" path="res://scene/about.gd" id="1_h2mlu"]
+[ext_resource type="Texture2D" uid="uid://c84hegr7a3201" path="res://World/Screenshot_75.png" id="2_sindv"]
+
+[sub_resource type="Theme" id="Theme_3r1v6"]
+
+[sub_resource type="Theme" id="Theme_p4yey"]
+
+[node name="About" type="Node2D"]
+script = ExtResource("1_h2mlu")
+
+[node name="Azka-rayhansyah-ipRIt5NjlFo-unsplash" type="Sprite2D" parent="."]
+position = Vector2(687, 315)
+scale = Vector2(0.351858, 0.407147)
+texture = ExtResource("1_416kv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 440.0
+offset_top = 240.0
+offset_right = 871.0
+offset_bottom = 450.0
+theme = SubResource("Theme_3r1v6")
+theme_override_font_sizes/normal_font_size = 30
+text = "Dibuat Oleh
+Dhuta Azikirra Subroto
+Ahmad Hawari
+Pramudya Anggara Zitha
+Widi Dwiky Alhamdi
+
+"
+
+[node name="Screenshot75" type="Sprite2D" parent="."]
+position = Vector2(313, 338)
+scale = Vector2(2.34722, 2.37838)
+texture = ExtResource("2_sindv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 146.0
+offset_top = 512.0
+offset_right = 286.0
+offset_bottom = 546.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = SubResource("Theme_p4yey")
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Kembali Ke Menu Utama"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

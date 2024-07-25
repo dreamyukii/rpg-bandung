@@ -20,6 +20,10 @@ State="*res://script/state.gd"
 SceneTransition="*res://scene/SceneTransition.tscn"
 MusicManager="*res://scene/MusicScene.tscn"
 
+[display]
+
+window/size/resizable=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
